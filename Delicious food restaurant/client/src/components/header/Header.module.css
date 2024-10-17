@@ -4,10 +4,14 @@ body {
     box-sizing: border-box;
 }
 
+main {
+    min-height: 100vh;
+}
+
 .header {
     box-sizing: border-box;
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: rgb(5, 125, 47);
     margin: 0 auto;
