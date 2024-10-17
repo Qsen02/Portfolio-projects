@@ -25,6 +25,10 @@ body {
     background-color: rgb(44, 44, 44);
 }
 
+main {
+    min-height: 100vh;
+}
+
 .navigation {
     display: flex;
     justify-content: center;
