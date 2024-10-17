@@ -53,7 +53,7 @@ h1 {
     height: 60px;
     border-radius: 50%;
     border: inset 10px rgb(0, 205, 255);
-    animation: rotate 1s linear infinite;
+    animation: rotate 1s infinite;
 }
 
 .paginationButtons {
