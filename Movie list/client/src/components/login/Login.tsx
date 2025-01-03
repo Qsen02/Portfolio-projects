@@ -30,7 +30,9 @@ export default function Login() {
             }
             const user = await login({ username, password });
             actions.resetForm();
-            setUserState(user);
+            if(setUserState){
+                setUserState(user);
+            }
             navigate("/");
         } catch (err) {
             if (((err as { message: string }).message).includes("[")) {

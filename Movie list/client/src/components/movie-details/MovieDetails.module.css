@@ -160,6 +160,7 @@
     height: 30px;
     border-radius: 10px;
     font-size: 14pt;
+    padding-left: 7px;
 }
 
 .commentWrapper form input::placeholder {

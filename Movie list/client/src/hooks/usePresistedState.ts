@@ -1,16 +1,8 @@
 import { useState } from "react"
 import { getUserData } from "../utils/userHelper"
+import { User } from "../types/User";
 
-type User = {
-    _id: string,
-    username: string,
-    email: string,
-    isAdmin: boolean,
-    accessToken:string,
-    profileImage:string
-} | null
-
-export function usePresistedState(initialvalues: User) {
+export function usePresistedState(initialvalues: User | null) {
     const [user, setUser] = useState(() => {
         const user = getUserData();
         if (user) {
@@ -19,7 +11,7 @@ export function usePresistedState(initialvalues: User) {
         return initialvalues;
     })
 
-    function setCurUser(value: User) {
+    function setCurUser(value: User | null) {
         setUser(value);
     }
 

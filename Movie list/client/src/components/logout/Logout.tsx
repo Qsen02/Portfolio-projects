@@ -3,20 +3,22 @@ import { useUserContext } from "../../context/userContext";
 
 import styles from "./Logout.module.css";
 
-export default function Logout(){
-    const {clearUserState}=useUserContext();
-    const navigate=useNavigate();
+export default function Logout() {
+    const { clearUserState } = useUserContext();
+    const navigate = useNavigate();
 
-    async function onLogout(){
-        await clearUserState();
+    async function onLogout() {
+        if (clearUserState) {
+            await clearUserState();
+        }
         navigate("/");
     }
 
-    async function onBack(){
+    async function onBack() {
         navigate("/");
     }
 
-    return(
+    return (
         <div className={styles.modal}>
             <section>
                 <h3>Are you sure want to logout?</h3>
@@ -25,5 +27,5 @@ export default function Logout(){
                 <button onClick={onBack}>Back</button>
             </section>
         </div>
-    )
+    );
 }

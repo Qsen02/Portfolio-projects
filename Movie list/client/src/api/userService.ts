@@ -1,15 +1,7 @@
+import { User } from "../types/User";
 import { get, post, put } from "./api"
 
 const endpoint = "users";
-
-type User = {
-    _id: string,
-    username: string,
-    email: string,
-    isAdmin: boolean,
-    accessToken: string,
-    profileImage: string
-} | null
 
 export async function resigter(data: {}) {
     const user = await post(`${endpoint}/register`, data)
