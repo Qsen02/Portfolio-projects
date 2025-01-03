@@ -26,11 +26,13 @@ import CommentAnswers from "./comment-answers/CommentAnswers";
 import AnswerDelete from "./answer-delete/AnswerDelete";
 import AnswerEdit from "./answer-edit/AnswerEdit";
 import AnswerLikes from "./answer-likes/AnswerLikes";
+import { Comment } from "../../types/Comments";
+import { User } from "../../types/User";
 
 export default function MovieDetails() {
     const { movieId } = useParams();
     const { user } = useUserContext();
-    const { movie, setMovie, loading, setLoading, fetchError } = useGetOneMovie({ likes: [], saves: [], comments: [] }, movieId);
+    const { movie, setMovie, loading, setLoading, fetchError } = useGetOneMovie({}, movieId);
     const [errMsg, setErrMsg] = useState("");
     const createComment = useCreateComment();
     const navigate = useNavigate();
@@ -96,8 +98,8 @@ export default function MovieDetails() {
                                     user={user}
                                     ownerId={(movie as { ownerId: string }).ownerId}
                                     setMovie={setMovie}
-                                    likes={(movie as { likes: [] }).likes}
-                                    saves={(movie as { saves: [] }).saves}
+                                    likes={(movie as { likes: User[] }).likes}
+                                    saves={(movie as { saves: User[] }).saves}
                                     movie={movie}
                                 />
                                 : ""
@@ -106,7 +108,7 @@ export default function MovieDetails() {
                     </section>
                     <MovieDetailsCommentSection
                         ownerId={(movie as { ownerId: string }).ownerId}
-                        comments={(movie as { comments: [] }).comments}
+                        comments={(movie as {comments: Comment[]}).comments}
                         onCreateComment={onCreateComment}
                         errMsg={errMsg}
                         movieId={movieId}

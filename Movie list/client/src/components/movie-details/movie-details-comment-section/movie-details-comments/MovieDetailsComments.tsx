@@ -5,23 +5,19 @@ import styles from "../../MovieDetails.module.css";
 import { useLikeComment, useUnlikeComment } from "../../../../hooks/useComments";
 import { useGetOneUser } from "../../../../hooks/useAuth";
 import { onProfileImageError } from "../../../../utils/imageError";
+import { User } from "../../../../types/User";
+import { Answer } from "../../../../types/Answers";
 
 type MovieDetailsCommentsType = {
     id: string,
     content: string,
     commentOwnerId: string,
     movieOwnerId: string,
-    user: {
-        _id: string,
-        username: string,
-        email: string,
-        isAdmin: boolean,
-        accessToken: string
-    } | null | undefined,
-    likes: {}[],
+    user: User | null | undefined,
+    likes: User[],
     movieId: string | undefined,
     setMovie: React.Dispatch<React.SetStateAction<{}>>,
-    answers:{}[]
+    answers:Answer[]
 }
 
 export default function MovieDetailsComments({

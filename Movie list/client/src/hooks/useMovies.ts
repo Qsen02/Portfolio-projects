@@ -3,40 +3,10 @@ import { useState } from "react";
 import { createMovie, deleteMovie, editMovie, getAllMovies, getMovieById, getTopMovies, likeMovie, pagination, saveMovie, searchMovies, unlikeMovie, unsaveMovie } from "../api/movieService";
 import { useNavigate } from "react-router-dom";
 import { moviesReducer } from "../reducers/catalog";
-
-type ColectionOfMovies = {
-    _id: string,
-    title: string,
-    genre: string,
-    image: string
-}[]
-
-
-type ActionType = {
-    type: string,
-    payload: {
-        _id: string,
-        title: string,
-        genre: string,
-        image: string
-    }[]
-}
-
-type OneMovie = {
-    _id: string,
-    title: string,
-    genre: string,
-    year: number,
-    image: string,
-    description: string,
-    likes: {}[],
-    comments: {}[],
-    saves: {}[],
-    ownerId: string
-} | {}
+import { Movie } from "../types/Movies";
 
 export function useGetTopMovies(initialvalues: []) {
-    const [movies, setMovies] = useState<ColectionOfMovies>(initialvalues);
+    const [movies, setMovies] = useState<Movie[]>(initialvalues);
     const [loading, setLoading] = useState(false);
     const [fetchError, setFetchError] = useState(false);
 
@@ -44,7 +14,7 @@ export function useGetTopMovies(initialvalues: []) {
         (async () => {
             try {
                 setLoading(true);
-                const movies: [] = await getTopMovies();
+                const movies = await getTopMovies();
                 setMovies(movies);
                 setLoading(false);
             } catch (err) {
@@ -62,7 +32,7 @@ export function useGetTopMovies(initialvalues: []) {
 }
 
 export function useGetAllMovies(initialvalues: []) {
-    const [movies, setMovies] = useReducer(moviesReducer, initialvalues);
+    const [movies, setMovies] = useReducer<Movie[]>(moviesReducer, initialvalues);
     const [loading, setLoading] = useState(false);
     const [fetchError, setFetchError] = useState(false);
     const [maxPage, setMaxPage] = useState(1);
@@ -96,7 +66,7 @@ export function useSearchMovies() {
 }
 
 export function useGetOneMovie(initialvalues: {}, movieId: string | undefined) {
-    const [movie, setMovie] = useState<OneMovie>(initialvalues)
+    const [movie, setMovie] = useState<Movie | {}>(initialvalues)
     const [loading, setLoading] = useState(false);
     const [fetchError, setFetchError] = useState(false);
     const navigate = useNavigate();
@@ -185,8 +155,8 @@ export function usePagination(
     maxPage: number,
     setMovieHandler: React.Dispatch<React.SetStateAction<ActionType>>,
     loadingHandler: React.Dispatch<React.SetStateAction<boolean>>,
-    searchedResults: {}[],
-    setSearchedResults: React.Dispatch<React.SetStateAction<{}[]>>) {
+    searchedResults: Movie[],
+    setSearchedResults: React.Dispatch<React.SetStateAction<Movie[]>>) {
 
     const [page, setPage] = useState(0);
 
@@ -198,15 +168,15 @@ export function usePagination(
             setMovieHandler({ type: "getNext", payload: data.movies });
         } else {
             const curResults = [...searchedResults];
-            const movies: { _id: string, title: string, genre: string, image: string }[][] = [];
+            const movies: Movie[][] = [];
             for (let i = 0; i < maxPage; i++) {
-                const curMovies: ColectionOfMovies = [];
+                const curMovies: Movie[] = [];
                 for (let j = 0; j < 6; j++) {
                     const movie= curResults.shift();
                     if (movie == undefined) {
                         break;
                     }
-                    curMovies.push(movie as { _id: string, title: string, genre: string, image: string } );
+                    curMovies.push(movie as Movie );
                 }
                 movies.push(curMovies);
             }

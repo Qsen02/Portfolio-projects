@@ -5,10 +5,11 @@ import MovieDetailsComments from "./movie-details-comments/MovieDetailsComments"
 import styles from "../MovieDetails.module.css";
 import { Form, Formik, FormikHelpers } from "formik";
 import CustomInput from "../../../commons/CustomInput";
+import { Comment } from "../../../types/Comments";
 
 type MovieDetailsCommentSectionTypes = {
     ownerId: string,
-    comments: [],
+    comments: Comment[],
     onCreateComment: (values: { content: string }, actions: FormikHelpers<{ content: string }>) => void,
     errMsg: string,
     movieId:string|undefined,
@@ -21,7 +22,7 @@ export default function MovieDetailsCommentSection({
     const { user } = useUserContext();
     return (
         <details className={styles.commentWrapper}>
-            <summary>Comments: {comments.length}</summary>
+            <summary>Comments: {comments?.length}</summary>
             {user
                 ? <Formik initialValues={{ content: "" }} onSubmit={onCreateComment}>
                     {
@@ -36,18 +37,18 @@ export default function MovieDetailsCommentSection({
                 </Formik>
                 : ""
             }
-            {comments.length > 0
-                ? comments.map(el => <MovieDetailsComments
-                    key={(el as { _id: string })._id}
-                    id={(el as { _id: string })._id}
-                    content={(el as { content: string }).content}
+            {comments?.length > 0
+                ? comments?.map(el => <MovieDetailsComments
+                    key={el._id}
+                    id={el._id}
+                    content={el.content}
                     commentOwnerId={(el as { ownerId: string }).ownerId}
                     movieOwnerId={ownerId}
                     user={user}
-                    likes={(el as { likes: {}[] }).likes}
+                    likes={el.likes}
                     movieId={movieId}
                     setMovie={setMovie}
-                    answers={(el as {answers:{}[]}).answers}
+                    answers={el.answers}
                 />)
                 : <h2>No comments yet</h2>
             }

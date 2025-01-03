@@ -1,37 +1,31 @@
+import { Movie } from "../types/Movies";
 import { get, post, del, put } from "./api";
-
-type ColectionOfMovies = {
-    _id: string,
-    title: string,
-    genre: string,
-    image: string
-}[]
 
 const endpoint = "movies";
 
 export async function getAllMovies() {
     const movies = await get(`${endpoint}/page/0`)
-    return movies as { movies: {}[], maxPage: number };
+    return movies as { movies: Movie[], maxPage: number };
 }
 
 export async function pagination(page: number) {
     const movies = await get(`${endpoint}/page/${page}`)
-    return movies as { movies: ColectionOfMovies, maxPage: number };
+    return movies as { movies: Movie[], maxPage: number };
 }
 
 export async function getMovieById(movieId: string | undefined) {
     const movie = await get(`${endpoint}/${movieId}`);
-    return movie as {};
+    return movie as Movie;
 }
 
 export async function getTopMovies() {
     const movies = await get(`${endpoint}/top/movies`);
-    return movies as [];
+    return movies as Movie[];
 }
 
 export async function searchMovies(query: string) {
     const movies = await get(`${endpoint}/search/${query}`);
-    return movies as {results:ColectionOfMovies,maxPage:number};
+    return movies as {results:Movie[],maxPage:number};
 }
 
 export async function createMovie(data: {}) {
