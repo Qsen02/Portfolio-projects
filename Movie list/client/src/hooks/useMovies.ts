@@ -2,8 +2,9 @@ import { useEffect, useReducer } from "react";
 import { useState } from "react";
 import { createMovie, deleteMovie, editMovie, getAllMovies, getMovieById, getTopMovies, likeMovie, pagination, saveMovie, searchMovies, unlikeMovie, unsaveMovie } from "../api/movieService";
 import { useNavigate } from "react-router-dom";
-import { moviesReducer } from "../reducers/catalog";
 import { Movie } from "../types/Movies";
+import { ActionType } from "../types/ActionReducerType";
+import { moviesReducer } from "../reducers/catalog";
 
 export function useGetTopMovies(initialvalues: []) {
     const [movies, setMovies] = useState<Movie[]>(initialvalues);
@@ -32,7 +33,7 @@ export function useGetTopMovies(initialvalues: []) {
 }
 
 export function useGetAllMovies(initialvalues: []) {
-    const [movies, setMovies] = useReducer<Movie[]>(moviesReducer, initialvalues);
+    const [movies, setMovies] = useReducer<React.Reducer<Movie[],ActionType>>(moviesReducer, initialvalues);
     const [loading, setLoading] = useState(false);
     const [fetchError, setFetchError] = useState(false);
     const [maxPage, setMaxPage] = useState(1);
@@ -153,7 +154,7 @@ export function useUnsaveMovie() {
 export function usePagination(
     isSearched: boolean,
     maxPage: number,
-    setMovieHandler: React.Dispatch<React.SetStateAction<ActionType>>,
+    setMovieHandler: React.Dispatch<ActionType>,
     loadingHandler: React.Dispatch<React.SetStateAction<boolean>>,
     searchedResults: Movie[],
     setSearchedResults: React.Dispatch<React.SetStateAction<Movie[]>>) {

@@ -1,14 +1,7 @@
-type ActionType={
-    type:"getAll"|"search"|"getNext",
-    payload:{
-            _id: string,
-            title: string,
-            genre: string,
-            image: string
-        }[]
-}
+import { ActionType } from "../types/ActionReducerType";
+import { Movie } from "../types/Movies";
 
-export function moviesReducer(state:[], action:ActionType):ActionType["payload"]|[] {
+export const moviesReducer:React.Reducer<Movie[], ActionType>=(state, action)=>{
     switch (action.type) {
         case "getAll":
             return action.payload.slice();

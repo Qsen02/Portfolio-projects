@@ -6,11 +6,12 @@ import CatalogContent from "./catalog-content/CatalogContent";
 import CustomInput from "../../commons/CustomInput";
 
 import styles from "./Catalog.module.css";
+import { Movie } from "../../types/Movies";
 
 export default function Catalog() {
     const searchMovies = useSearchMovies();
     const [isSearched, setIsSearched] = useState(false);
-    const [searchedResults, setSerchedResults] = useState<{}[]>([]);
+    const [searchedResults, setSerchedResults] = useState<Movie[]>([]);
     const { movies, setMovies, loading, setLoading, fetchError, setFetchError, maxPage, setMaxPage } = useGetAllMovies([]);
     const { paginationHandler, page, setPage } = usePagination(isSearched, maxPage, setMovies, setLoading, searchedResults, setSerchedResults)
 
