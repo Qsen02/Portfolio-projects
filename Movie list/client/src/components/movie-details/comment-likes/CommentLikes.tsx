@@ -39,10 +39,10 @@ export default function CommentLikes() {
                             : fetchError
                                 ? <h2>Likes can't be loaded, please try again later.</h2>
                                 : comment.likes.map(el => <CommentLikesDetails
-                                    key={(el as { _id: string })._id}
-                                    userId={(el as { _id: string })._id}
-                                    image={(el as { profileImage: string }).profileImage}
-                                    username={(el as { username: string }).username}
+                                    key={el._id}
+                                    userId={el._id}
+                                    image={el.profileImage}
+                                    username={el.username}
                                 />)
                     }
                 </section>

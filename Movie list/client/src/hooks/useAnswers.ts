@@ -2,9 +2,18 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { createAnswer, deleteAnswer, editAnswer, getAnswerById, likeAnswer, unlikeAnswer } from "../api/answerService"
 import { Answer } from "../types/Answers";
+import { User } from "../types/User";
 
-export function useGetOneAnswer(initialvalues: {}, answerId: string|undefined) {
-    const [answer, setAnswer] = useState<Answer | {}>(initialvalues);
+type initialvaluesType={
+    _id: string,
+    username: string,
+    content: string,
+    ownerId: User,
+    likes: [] | User[]
+}
+
+export function useGetOneAnswer(initialvalues: initialvaluesType, answerId: string|undefined) {
+    const [answer, setAnswer] = useState<Answer | initialvaluesType>(initialvalues);
     const [loading,setLoading]=useState(false);
     const [fetchError,setFetchError]=useState(false);
     const navigate = useNavigate();

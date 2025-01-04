@@ -2,6 +2,17 @@ import { useEffect, useState } from "react";
 import { createComment, deleteComment, getCommentById, likeComment, unlikeComment } from "../api/commentService";
 import { useNavigate } from "react-router-dom";
 import { Comment } from "../types/Comments";
+import { User } from "../types/User";
+import { Answer } from "../types/Answers";
+
+type initialValuesType={
+        username: string, 
+        content: string, 
+        ownerId: string, 
+        movieId: string, 
+        likes: User[]| [], 
+        answers: Answer[] | []
+}
 
 export function useCreateComment() {
     async function creatingComment(movieId: string | undefined, data: {}) {
@@ -17,8 +28,8 @@ export function useDeleteComment() {
     return deletingComment;
 }
 
-export function useGetOneComment(initialvalues: {}, commentId: string | undefined) {
-    const [comment, setComment] = useState<Comment | {}>(initialvalues);
+export function useGetOneComment(initialvalues: initialValuesType, commentId: string | undefined) {
+    const [comment, setComment] = useState<Comment | initialValuesType>(initialvalues);
     const [loading,setLoading]=useState(false);
     const [fetchError,setFetchError]=useState(false);
     const navigate = useNavigate();

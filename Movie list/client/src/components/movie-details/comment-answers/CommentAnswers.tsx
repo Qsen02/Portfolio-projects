@@ -10,26 +10,21 @@ import CustomInput from "../../../commons/CustomInput";
 import AnswerDetails from "./answer-details/AnswerDetails";
 
 import styles from "../comment-answers/CommentAnswers.module.css"
-
-type User = {
-    _id: string,
-    username: string,
-    email: string,
-    isAdmin: boolean,
-    accessToken: string,
-    profileImage: string
-} | null
+import { User } from "../../../types/User";
 
 type CommentAnswersProps={
-    user:User|undefined,
+    user:User | undefined | null,
     setMovie: React.Dispatch<React.SetStateAction<{}>>
 }
 
 export default function CommentAnswers({
     user,setMovie
 }:CommentAnswersProps) {
+    const initialValues={
+        username: "", content: "", ownerId: "", movieId: "", likes: [], answers: []
+    }
     const { movieId, commentId } = useParams();
-    const { comment, setComment, loading, setLoading, fetchError, setFetchError } = useGetOneComment({ username: "", content: "", ownerId: "", movieId: "", likes: [], answers: [] }, commentId);
+    const { comment, setComment, loading, setLoading, fetchError, setFetchError } = useGetOneComment(initialValues, commentId);
     const navigate = useNavigate();
     const createAnswer = useCreateAnswer();
     const [errMessage, setErrMessage] = useState("");

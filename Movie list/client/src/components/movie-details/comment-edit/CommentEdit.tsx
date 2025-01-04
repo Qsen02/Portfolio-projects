@@ -15,8 +15,11 @@ type CommentEditProps = {
 export default function CommentEdit({
     setMovie
 }: CommentEditProps) {
+    const initialValues={
+        username: "", content: "", ownerId: "", movieId: "", likes: [], answers: []
+    }
     const { movieId, commentId } = useParams();
-    const { comment } = useGetOneComment({ content: "", username: "",likes:[] }, commentId);
+    const { comment } = useGetOneComment(initialValues, commentId);
     const navigate = useNavigate();
     const [errMsg, setErrMsg] = useState("");
 

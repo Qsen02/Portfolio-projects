@@ -32,7 +32,9 @@ export default function Register() {
         try {
             const user = await register({ username, email,password,repass });
             actions.resetForm();
-            setUserState(user);
+            if(setUserState){
+                setUserState(user);
+            }
             navigate("/");
         } catch (err) {
             if (((err as { message: string }).message).includes("[")) {

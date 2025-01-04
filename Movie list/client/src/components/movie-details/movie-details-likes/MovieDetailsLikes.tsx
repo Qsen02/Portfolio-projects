@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import LikesDetails from "./likes-details/LikesDetails";
 
 import styles from "./MovieDetailsLikes.module.css"
+import { Movie } from "../../../types/Movies";
 
 type MovieDetailsLikesProps = {
-    curMovie: {}
+    curMovie: Movie | {}
 }
 
 export default function MovieDetailsLikes({

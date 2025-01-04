@@ -27,6 +27,7 @@ export default function MovieDetailsComments({
     const likeComment = useLikeComment();
     const unlikeComment = useUnlikeComment();
     const { curUser } = useGetOneUser({}, commentOwnerId);
+    const likesId=likes.map(el=>el._id);
 
     async function onLike() {
         try {
@@ -76,7 +77,7 @@ export default function MovieDetailsComments({
                             <i id={styles.guestCommentLikes} className="fa-solid fa-thumbs-up"></i>
                             <p>{likes.length}</p>
                         </>
-                        : likes.includes(user?._id)
+                        : likesId.includes(user._id)
                             ? <>
                                 <i onClick={onUnlike} id={styles.commentLikes} className="fa-solid fa-thumbs-up"></i>
                                 <Link to={`/catalog/${movieId}/comment/${id}/likes`}><p>{likes.length}</p></Link>

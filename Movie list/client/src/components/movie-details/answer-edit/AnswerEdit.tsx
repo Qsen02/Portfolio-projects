@@ -51,6 +51,7 @@ export default function AnswerEdit({
                 throw new Error("Please, fill the field!");
             }
             await editAnswer(answerId, commentId, { username: curUser?.username, content });
+            actions.resetForm();
             navigate(`/catalog/${movieId}/comment/${commentId}/answers`);
         } catch (err) {
             setErrMessage((err as { message: string }).message);

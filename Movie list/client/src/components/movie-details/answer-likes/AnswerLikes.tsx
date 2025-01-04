@@ -1,27 +1,22 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom";
 
-import { useGetOneAnswer } from "../../../hooks/useAnswers"
+import { useGetOneAnswer } from "../../../hooks/useAnswers";
 import AnswerLikesDetails from "./answer-likes-details/AnswerLikesDetails";
 
-import styles from "../movie-details-likes/MovieDetailsLikes.module.css"
+import styles from "../movie-details-likes/MovieDetailsLikes.module.css";
 
 export default function AnswerLikes() {
     const initialvalues = {
         _id: "",
         username: "",
         content: "",
-        ownerId: {
-            _id: "",
-            username: "",
-            email: "",
-            isAdmin: false,
-            accessToken: "",
-            profileImage: ""
-        },
-        likes: []
-    }
+        likes: [],
+    };
     const { movieId, commentId, answerId } = useParams();
-    const { answer, loading, fetchError, setFetchError } = useGetOneAnswer(initialvalues, answerId);
+    const { answer, loading, fetchError, setFetchError } = useGetOneAnswer(
+        initialvalues,
+        answerId
+    );
     const navigate = useNavigate();
 
     function onBack() {
@@ -39,30 +34,33 @@ export default function AnswerLikes() {
 
     return (
         <>
-            {loading && !fetchError
-                ? <div className={styles.loadingSpinner}></div>
-                : ""
-            }
+            {loading && !fetchError ? (
+                <div className={styles.loadingSpinner}></div>
+            ) : (
+                ""
+            )}
             <div className={styles.modal}>
                 <section>
                     <button onClick={onBack}>X</button>
                     <h2>Answer like list</h2>
-                    {answer.likes.length == 0 && !loading && !fetchError
-                        ? <h2>No likes yet</h2>
-                        : loading && !fetchError
-                            ? <h2>Likes loading...</h2>
-                            : fetchError
-                                ? <h2>Likes can't be loaded, please try again later.</h2>
-                                : answer.likes.map(el => <AnswerLikesDetails
-                                    key={(el as { _id: string })._id}
-                                    userId={(el as { _id: string })._id}
-                                    profileImage={(el as { profileImage: string }).profileImage}
-                                    username={(el as { username: string }).username}
-                                />
-                                )
-                    }
+                    {answer.likes.length == 0 && !loading && !fetchError ? (
+                        <h2>No likes yet</h2>
+                    ) : loading && !fetchError ? (
+                        <h2>Likes loading...</h2>
+                    ) : fetchError ? (
+                        <h2>Likes can't be loaded, please try again later.</h2>
+                    ) : (
+                        answer.likes.map((el) => (
+                            <AnswerLikesDetails
+                                key={el._id}
+                                userId={el._id}
+                                profileImage={el.profileImage}
+                                username={el.username}
+                            />
+                        ))
+                    )}
                 </section>
             </div>
         </>
-    )
+    );
 }
