@@ -1,19 +1,15 @@
-type User = {
-    _id: string,
-    accessToken: string,
-    username: string,
-    email: string,
-    isAdmin: boolean;
-}
+import { User } from "../types/User";
 
 export function setUserData(data: User | null) {
     localStorage.setItem("user", JSON.stringify(data));
 }
 
 export function getUserData() {
-    const item: string = localStorage.getItem("user");
-    const data: User = JSON.parse(item);
-    return data;
+    const item = localStorage.getItem("user");
+    if (item) {
+        const data: User = JSON.parse(item);
+        return data;
+    }
 }
 
 export function clearUserData() {

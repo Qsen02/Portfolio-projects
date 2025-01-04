@@ -11,7 +11,6 @@ type CatalogContentProps = {
 export default function CatalogContent({
     id, title, genre, image
 }: CatalogContentProps) {
-    console.log(image);
     return (
         <article>
             <img src={image} alt={title} onError={onImageError}/>

@@ -2,7 +2,7 @@ import { createContext, useContext } from "react";
 import { logout } from "../api/userService";
 import { clearUserData, setUserData } from "../utils/userHelper";
 import { usePresistedState } from "../hooks/usePresistedState";
-import { User, UserContextType } from "../types/User";
+import {  User, UserContextType } from "../types/User";
 
 const UserContext = createContext<UserContextType | null>(null);
 

@@ -14,8 +14,8 @@ export type User = {
 
 export type UserContextType = {
     user: User | null;
-    setUserState: (user: User) => void;
-    clearUserState: (() => Promise<void>);
+    setUserState: (user: User | null) => void;
+    clearUserState: () => Promise<void>;
 }
 
 export type initialvaluesType={
