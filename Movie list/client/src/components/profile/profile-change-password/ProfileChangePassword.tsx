@@ -7,9 +7,10 @@ import CustomInput from "../../../commons/CustomInput";
 import { changePasswordSchema } from "../../../schemas";
 
 import styles from "../../FormsAndErrors.module.css";
+import { initialvaluesType, User } from "../../../types/User";
 
 type ProfileChangePasswordProps={
-    setCurUser: React.Dispatch<React.SetStateAction<{}>>
+    setCurUser: React.Dispatch<React.SetStateAction< User | initialvaluesType>>
 }
 
 export default function ProfileChangePassword({

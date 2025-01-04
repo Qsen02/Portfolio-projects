@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { changePassword, editUser, getUserById, login, resigter } from "../api/userService"
 import { useNavigate } from "react-router-dom";
+import { initialvaluesType, User } from "../types/User";
 
 export function useLogin() {
     async function logingin(data: {}) {
@@ -18,8 +19,8 @@ export function useRegister() {
     return registration;
 }
 
-export function useGetOneUser(initialvalues: {}, userId: string|undefined) {
-    const [curUser, setCurUser] = useState(initialvalues);
+export function useGetOneUser(initialvalues: initialvaluesType, userId: string|undefined) {
+    const [curUser, setCurUser] = useState<User | initialvaluesType>(initialvalues);
     const navigate = useNavigate();
 
     useEffect(() => {

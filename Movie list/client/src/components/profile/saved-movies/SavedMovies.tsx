@@ -1,9 +1,10 @@
 import styles from "../ProfileMovies.module.css";
 import { useNavigate } from "react-router-dom";
 import SavedMoviesDetails from "./saved-movies-details/SavedMoviesDetails";
+import { Movie } from "../../../types/Movies";
 
 type SavedMoviesProps = {
-    savedMovies: []
+    savedMovies: Movie[]
 }
 
 export default function SavedMovies({
@@ -22,11 +23,11 @@ export default function SavedMovies({
             <section className={styles.catalogContent}>
                     {savedMovies.length > 0
                         ? savedMovies.map(el => <SavedMoviesDetails
-                            key={(el as {_id:string})._id}
-                            id={(el as {_id:string})._id}
-                            title={(el as {title:string}).title}
-                            image={(el as {image:string}).image}
-                            genre={(el as {genre:string}).genre}
+                            key={el._id}
+                            id={el._id}
+                            title={el.title}
+                            image={el.image}
+                            genre={el.genre}
                             />)
                         : <h2>No liked movies yet</h2>
                     }

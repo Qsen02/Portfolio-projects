@@ -18,7 +18,15 @@ import UserProfileGuard from "../../commons/UserProfileGuard";
 
 export default function Profile() {
     const { user } = useUserContext();
-    const { curUser, setCurUser } = useGetOneUser({ likedMovies: [], savedMovies: [], createdMovies: [] }, user?._id);
+    const initialValues={
+        _id:"",
+        username:"",
+        email:"",
+        profileImage:"",
+        isAdmin:false,
+        likedMovies: [], savedMovies: [], createdMovies: []
+    }
+    const { curUser, setCurUser } = useGetOneUser(initialValues, user?._id);
 
     return (
         <>
@@ -39,11 +47,11 @@ export default function Profile() {
                 ? <>
                     <section className={styles.profileHeader}>
                         <Link to={`/profile/fullImage`}><img src={(curUser as { profileImage: string }).profileImage} alt={(curUser as { username: string }).username} onError={onProfileImageError} /></Link>
-                        <h2>{(curUser as { username: string }).username}</h2>
-                        <h3>{(curUser as { email: string }).email}</h3>
-                        <p>Created movies: {(curUser as { createdMovies: [] }).createdMovies.length}</p>
-                        <Link to={`/profile/${(curUser as { _id: string })._id}/edit`}><button>Edit profile</button></Link>
-                        <Link to={`/profile/${(curUser as { _id: string })._id}/changePassword`}><button>Change password</button></Link>
+                        <h2>{curUser.username}</h2>
+                        <h3>{curUser.email}</h3>
+                        <p>Created movies: {curUser.createdMovies.length}</p>
+                        <Link to={`/profile/${curUser._id}/edit`}><button>Edit profile</button></Link>
+                        <Link to={`/profile/${curUser._id}/changePassword`}><button>Change password</button></Link>
                     </section>
                     <section className={styles.profileBody}>
                         <Link to="/profile/createdMovies">
@@ -55,13 +63,13 @@ export default function Profile() {
                 </>
                 : <>
                     <section className={styles.profileHeader}>
-                        <Link to={`/profile/fullImage`}><img src={(curUser as { profileImage: string }).profileImage} alt={(curUser as { username: string }).username} onError={onProfileImageError} /></Link>
-                        <h2>{(curUser as { username: string }).username}</h2>
-                        <h3>{(curUser as { email: string }).email}</h3>
-                        <p>Saved movies count: {(curUser as { savedMovies: [] }).savedMovies.length}</p>
-                        <p>Liked movies count: {(curUser as { likedMovies: [] }).likedMovies.length}</p>
-                        <Link to={`/profile/${(curUser as { _id: string })._id}/edit`}><button>Edit profile</button></Link>
-                        <Link to={`/profile/${(curUser as { _id: string })._id}/changePassword`}><button>Change password</button></Link>
+                        <Link to={`/profile/fullImage`}><img src={curUser.profileImage} alt={curUser.username} onError={onProfileImageError} /></Link>
+                        <h2>{curUser.username}</h2>
+                        <h3>{curUser.email}</h3>
+                        <p>Saved movies count: {curUser.savedMovies.length}</p>
+                        <p>Liked movies count: {curUser.likedMovies.length}</p>
+                        <Link to={`/profile/${curUser._id}/edit`}><button>Edit profile</button></Link>
+                        <Link to={`/profile/${curUser._id}/changePassword`}><button>Change password</button></Link>
                     </section>
                     <section className={styles.profileBody}>
                         <Link to="/profile/savedMovies">

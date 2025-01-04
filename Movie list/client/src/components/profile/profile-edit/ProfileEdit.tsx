@@ -8,10 +8,11 @@ import { editUserSchema } from "../../../schemas";
 import { useEditUser } from "../../../hooks/useAuth";
 
 import styles from "../../FormsAndErrors.module.css";
+import { initialvaluesType, User } from "../../../types/User";
 
 type ProfileEditProps = {
-    user: {},
-    setUser: React.Dispatch<React.SetStateAction<{}>>
+    user: User | initialvaluesType,
+    setUser: React.Dispatch<React.SetStateAction< User | initialvaluesType>>
 }
 
 export default function ProfileEdit({
@@ -54,9 +55,9 @@ export default function ProfileEdit({
 
     return (
         <Formik initialValues={{
-            profileImage: (user as { profileImage: string }).profileImage,
-            username: (user as { username: string }).username,
-            email: (user as { email: string }).email,
+            profileImage: user.profileImage,
+            username: user.username,
+            email: user.email,
         }}
             validationSchema={editUserSchema}
             onSubmit={onEdit}

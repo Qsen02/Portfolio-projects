@@ -18,13 +18,16 @@ export async function logout() {
 }
 
 export async function getUserById(userId: string|undefined) {
-    return await get(`${endpoint}/${userId}`);
+    const user=await get(`${endpoint}/${userId}`);
+    return user as User;
 }
 
 export async function editUser(userId:string|undefined,data:{}){
-    return await put(`${endpoint}/${userId}/edit`,data);
+    const user= await put(`${endpoint}/${userId}/edit`,data);
+    return user as User;
 }
 
 export async function changePassword(userId:string|undefined,data:{}){
-    return await put(`${endpoint}/${userId}/change/password`,data);
+    const user= await put(`${endpoint}/${userId}/change/password`,data);
+    return user as User;
 }
