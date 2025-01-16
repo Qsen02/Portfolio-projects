@@ -1,0 +1,355 @@
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.wrapper {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: inset 1px 1px 20px 1px grey;
+    width: 800px;
+    height: auto;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+}
+
+.detailsHeader {
+    display: block;
+    width: 800px;
+    height: auto;
+}
+
+.detailsHeader img {
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.detailsHeader div {
+    display: inline-block;
+    margin-top: -20px;
+    height: auto;
+    width: 400px;
+}
+
+.detailsHeader div h2 {
+    position: relative;
+    bottom: 200px;
+    text-align: center;
+}
+
+.detailsHeader div p {
+    position: relative;
+    bottom: 180px;
+    text-align: center;
+    font-size: 16pt;
+    word-break: break-word;
+}
+
+.detailsBody {
+    display: block;
+    width: 800px;
+    height: auto;
+}
+
+.detailsBody p {
+    text-align: left;
+    font-size: 16pt;
+    word-wrap: break-word;
+}
+
+.loadingSpinner {
+    display: block;
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    left: 32%;
+    bottom: 53%;
+    border-radius: 50%;
+    border: inset 10px yellow;
+    animation: rotating 1s linear infinite;
+}
+
+.message {
+    display: block;
+    margin: 0 auto;
+    margin-top: 200px;
+    width: 400px;
+    font-size: 22pt;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: inset 1px 1px 20px 1px grey;
+}
+
+.buttons {
+    position: relative;
+    bottom: 150px;
+    right: 10px;
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    height: auto;
+    text-align: center;
+}
+
+.buttons button {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(205, 205, 6);
+    border: none;
+    border-radius: 10px;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.buttons button:hover {
+    background-color: yellow;
+}
+
+.buttons a i {
+    position: relative;
+    bottom: 5px;
+    left: 10px;
+    font-size: 24pt;
+    color: black;
+}
+
+.buttons div {
+    position: relative;
+    display: inline-block;
+    top: 40px;
+    width: 30px;
+    height: 30px;
+}
+
+.buttons div a p {
+    position: relative;
+    left: 42px;
+    bottom: 25px;
+}
+
+.buttons div a {
+    text-decoration: none;
+    color: black;
+}
+
+.buttons .unlike i {
+    position: relative;
+    left: 40px;
+    bottom: 7px;
+    font-size: 24pt;
+    cursor: pointer;
+    color: red;
+}
+
+.buttons .like i {
+    position: relative;
+    left: 40px;
+    bottom: 7px;
+    font-size: 24pt;
+    cursor: pointer;
+    color: black;
+}
+
+.buttons .added {
+    background-color: rgb(5, 125, 47);
+    color: white;
+    cursor: default;
+    margin-right: 15px;
+}
+
+.buttons .added:hover {
+    background-color: rgb(5, 125, 47);
+    color: white;
+}
+
+.guestButtons p {
+    position: relative;
+    left: 16px;
+    bottom: 26px;
+}
+
+.guestButtons i {
+    position: relative;
+    left: 200px;
+    bottom: 160px;
+    font-size: 24pt;
+    color: red;
+}
+
+.adminButtons i {
+    position: relative;
+    bottom: 20px;
+    left: 20px;
+    font-size: 24pt;
+    color: red;
+}
+
+.adminButtons a {
+    position: relative;
+    left: 21px;
+    bottom: 13px;
+    text-decoration: none;
+    color: black;
+    font-size: 16pt;
+}
+
+@media(max-width:550px) {
+    .loadingSpinner {
+        width: 35px;
+        height: 35px;
+        left: 35%;
+        bottom: 43%;
+    }
+    .wrapper {
+        width: 300px;
+        margin-bottom: 100px;
+    }
+    .detailsHeader {
+        display: block;
+        width: 300px;
+        height: auto;
+    }
+    .detailsHeader img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        width: 200px;
+        height: 200px;
+    }
+    .detailsHeader div {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    .detailsHeader div h2 {
+        display: block;
+        bottom: 10px;
+        text-align: center;
+        margin-left: 50px;
+        width: 200px;
+        word-break: break-word;
+        font-size: 12pt;
+    }
+    .detailsHeader div p {
+        display: block;
+        bottom: 15px;
+        font-size: 12pt;
+        margin-top: 10px;
+        margin-right: 100px;
+    }
+    .detailsBody {
+        width: 300px;
+    }
+    .detailsBody p {
+        text-align: center;
+        font-size: 12pt;
+    }
+    .buttons {
+        position: relative;
+        bottom: 50px;
+        right: 60px;
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: auto;
+        text-align: center;
+    }
+    .buttons button {
+        width: 75px;
+        height: 40px;
+        background-color: rgb(205, 205, 6);
+        border: none;
+        border-radius: 10px;
+        font-size: 12pt;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+        margin-right: 15px;
+    }
+    .adminButtons i {
+        font-size: 18pt;
+        left: 10px;
+        color: red;
+    }
+    .adminButtons a {
+        font-size: 12pt;
+        left: 11px;
+    }
+    .buttons button:hover {
+        background-color: yellow;
+    }
+    .buttons a i {
+        position: relative;
+        bottom: 5px;
+        left: 10px;
+        font-size: 18pt;
+        color: black;
+    }
+    .buttons div {
+        position: relative;
+        display: inline-block;
+        top: 40px;
+        width: 30px;
+        height: 30px;
+    }
+    .buttons div a p {
+        position: relative;
+        left: 52px;
+        bottom: 27px;
+        font-size: 12pt;
+    }
+    .buttons div a {
+        text-decoration: none;
+        color: black;
+        font-size: 12pt;
+    }
+    .buttons .unlike i {
+        position: relative;
+        left: 40px;
+        bottom: 20px;
+        font-size: 18pt;
+        cursor: pointer;
+        color: red;
+    }
+    .buttons .like i {
+        position: relative;
+        left: 40px;
+        bottom: 20px;
+        font-size: 18pt;
+        cursor: pointer;
+        color: black;
+    }
+    .buttons .added {
+        background-color: rgb(5, 125, 47);
+        color: white;
+        cursor: default;
+        margin-right: 15px;
+        font-size: 12pt;
+    }
+    .buttons .added:hover {
+        background-color: rgb(5, 125, 47);
+        color: white;
+    }
+    .guestButtons p {
+        position: relative;
+        left: 0;
+        top: -40px;
+        font-size: 12pt;
+    }
+    .guestButtons i {
+        position: relative;
+        left: 138px;
+        bottom: 30px;
+        color: red;
+        font-size: 18pt;
+    }
+}

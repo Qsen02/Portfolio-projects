@@ -1,0 +1,112 @@
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hovering {
+    20% {
+        color: aliceblue;
+    }
+    40% {
+        color: rgb(127, 205, 231);
+    }
+    60% {
+        color: rgb(5, 211, 243);
+    }
+    80% {
+        color: rgb(0, 213, 255);
+    }
+    100% {
+        color: rgb(0, 205, 255);
+    }
+}
+
+h1 {
+    text-align: center;
+    color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.catalogWrapper {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto;
+    width: 1300px;
+    height: auto;
+    background-color: rgb(89, 86, 86);
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.loading {
+    display: block;
+    position: absolute;
+    top: 55%;
+    left: 47%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: inset 10px rgb(0, 205, 255);
+    animation: rotate 1s infinite;
+}
+
+.paginationButtons {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    width: 300px;
+    height: 50px;
+    background-color: rgb(89, 86, 86);
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 15px;
+}
+
+.paginationButtons button {
+    display: inline-block;
+    position: relative;
+    margin: 0 auto;
+    background-color: rgb(89, 86, 86);
+    color: aliceblue;
+    font-size: 18pt;
+}
+
+.paginationButtons button:hover {
+    background-color: rgb(89, 86, 86);
+    animation: hovering 1s;
+    animation-fill-mode: forwards;
+}
+
+.paginationButtons p {
+    display: inline-block;
+    position: relative;
+    margin: -10px auto;
+    color: aliceblue;
+    text-align: center;
+    font-size: 16pt;
+}
+
+@media(max-width:750px) {
+    h1 {
+        font-size: 14pt;
+    }
+    .catalogWrapper {
+        display: block;
+        width: 300px;
+    }
+    .paginationButtons {
+        width: 275px;
+    }
+    .paginationButtons button {
+        font-size: 14pt;
+    }
+    .paginationButtons p {
+        font-size: 12pt;
+        margin: 0 auto;
+    }
+}

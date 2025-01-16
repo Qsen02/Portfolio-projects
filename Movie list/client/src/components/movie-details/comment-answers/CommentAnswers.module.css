@@ -1,0 +1,259 @@
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingSpinner {
+    position: fixed;
+    top: 42%;
+    left: 47%;
+    width: 70px;
+    height: 70px;
+    border: inset 10px white;
+    border-radius: 50%;
+    animation: rotating;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    z-index: 1001;
+}
+
+.modal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 98%;
+    height: 100%;
+    max-height: 94vh;
+    padding: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal section {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 800px;
+    background-color: rgb(29, 29, 29);
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal section>button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background-color: rgb(29, 29, 29);
+    border: none;
+    color: grey;
+    font-size: 18pt;
+    cursor: pointer;
+}
+
+.modal section>button:hover {
+    color: lightgrey;
+}
+
+.modal section form {
+    display: block;
+    width: 750px;
+}
+
+.modal section form input {
+    width: 400px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 10px;
+    padding-left: 10px;
+    color: black;
+    font-size: 14pt;
+    text-decoration: none;
+}
+
+.modal section form input::placeholder {
+    text-decoration: none;
+    color: black;
+    font-size: 14pt;
+}
+
+.modal section form button {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: rgb(200, 200, 7);
+    font-size: 18pt;
+    color: black;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.modal section section {
+    display: block;
+    margin: 0 auto;
+    width: 750px;
+    margin-top: 20px;
+}
+
+.modal section section article {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 750px;
+    border-radius: 15px;
+    background-color: rgb(44, 44, 44);
+    font-size: 16pt;
+    color: white;
+    padding: 10px;
+    padding-top: 0;
+    text-align: left;
+    word-wrap: break-word;
+    margin-bottom: 20px;
+}
+
+.modal section section article img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    margin-bottom: -15px;
+}
+
+.modal section section article h3 {
+    display: inline-block;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 12pt;
+    text-align: center;
+}
+
+.modal .yourAnswer {
+    background-color: rgb(75, 73, 73);
+}
+
+.modal section section article div .content {
+    position: static;
+    display: block;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.modal section section article a {
+    color: white;
+}
+
+.modal section section article i {
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 18pt;
+    cursor: pointer;
+}
+
+.modal section article #delete:hover,
+.modal section article #edit:hover {
+    color: yellow;
+}
+
+.modal section section article #ownerAnswerLikes {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    cursor: default;
+}
+
+.modal section section article #guestAnswerLikes {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    cursor: default;
+}
+
+.modal #answerLikes {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+}
+
+.modal section section article>p,
+.modal section section article a>p {
+    position: absolute;
+    right: 35px;
+    top: 23px;
+    font-size: 14pt;
+}
+
+@media(max-width:750px) {
+    .modal section {
+        width: 300px;
+        font-size: 12pt;
+    }
+    .modal section>button {
+        font-size: 14pt;
+        top: 5px;
+        right: 7px;
+    }
+    .modal section form {
+        margin: 0 auto;
+        width: 250px;
+    }
+    .modal section form input {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        height: 20px;
+        font-size: 12pt;
+    }
+    .modal section form input::placeholder {
+        font-size: 12pt;
+    }
+    .modal section form button {
+        display: block;
+        margin: 0 auto;
+        margin-top: 10px;
+        width: 70px;
+        height: 30px;
+        font-size: 14pt;
+    }
+    .modal section section {
+        width: 250px;
+    }
+    .modal section section article {
+        font-size: 12pt;
+        width: 250px;
+    }
+    .modal section section article img {
+        width: 30px;
+        height: 30px;
+        margin-bottom: -5px;
+        margin-right: 10px;
+    }
+    .errorMessage {
+        font-size: 10pt;
+    }
+    .modal section section article i {
+        font-size: 14pt;
+        margin-left: 10px;
+    }
+    .modal section section article>p,
+    .modal section section article a>p {
+        font-size: 12pt;
+    }
+}

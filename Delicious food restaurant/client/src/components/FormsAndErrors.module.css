@@ -1,0 +1,98 @@
+.form {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 500px;
+    height: auto;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    background-color: rgb(5, 125, 47);
+    margin-bottom: 100px;
+}
+
+.form input,
+.form textarea {
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+    height: 35px;
+    border-radius: 7px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.form a {
+    text-decoration: none;
+    color: rgb(166, 158, 167);
+}
+
+.form a:hover {
+    color: lightgray;
+}
+
+.form button {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    height: 50px;
+    background-color: rgb(205, 205, 6);
+    border: none;
+    border-radius: 10px;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.form button:hover {
+    background-color: yellow;
+}
+
+.error {
+    border: solid red 2px;
+}
+
+.errorParagraph {
+    position: relative;
+    color: rgb(203, 16, 16);
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+    bottom: 15px;
+    margin-bottom: -10px;
+}
+
+.errorDontMatch {
+    text-align: center;
+    color: rgb(203, 16, 16);
+    font-size: 12pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+@media(max-width:550px) {
+    .form {
+        width: 300px;
+        font-size: 12pt;
+    }
+    .form input,
+    .form textarea {
+        width: 200px;
+        height: 30px;
+        font-size: 12pt;
+    }
+    .form button {
+        width: 60px;
+        height: 30px;
+        font-size: 12pt;
+    }
+    .errorParagraph {
+        font-size: 10pt;
+    }
+    .errorDontMatch {
+        font-size: 10pt;
+    }
+}

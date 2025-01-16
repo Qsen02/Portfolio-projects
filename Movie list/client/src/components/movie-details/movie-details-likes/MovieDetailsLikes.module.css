@@ -1,0 +1,124 @@
+@keyframes rotating {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingSpinner {
+    position: fixed;
+    top: 40%;
+    left: 47%;
+    width: 70px;
+    height: 70px;
+    border: inset 10px white;
+    border-radius: 50%;
+    animation: rotating;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    z-index: 1001;
+}
+
+.modal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 98%;
+    height: 100%;
+    max-height: 94vh;
+    padding: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    overflow: auto;
+}
+
+.modal section {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: -250px;
+    width: 500px;
+    background-color: rgb(29, 29, 29);
+    border-radius: 20px;
+    color: white;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    overflow: auto;
+}
+
+.modal section h2 {
+    text-align: center;
+}
+
+.modal section button {
+    position: absolute;
+    right: 10px;
+    background-color: rgb(29, 29, 29);
+    color: grey;
+    border: none;
+    font-size: 18pt;
+    cursor: pointer;
+}
+
+.modal section button:hover {
+    color: lightgrey;
+}
+
+.modal section article {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 450px;
+    border-radius: 15px;
+    height: 60px;
+    padding: 5px;
+    background-color: rgb(44, 44, 44);
+}
+
+.modal section article p {
+    display: block;
+    margin-top: -37px;
+    text-align: center;
+}
+
+.modal section article img {
+    display: block;
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.modal section .you {
+    background-color: rgb(200, 200, 7);
+    color: black;
+}
+
+@media(max-width:750px) {
+    .modal section {
+        width: 250px;
+        font-size: 12pt;
+    }
+    .modal section article {
+        width: 200px;
+        height: 40px;
+    }
+    .modal section button {
+        font-size: 14pt;
+    }
+    .modal section article img {
+        width: 30px;
+        height: 30px;
+    }
+    .modal section article p {
+        margin-top: -23px;
+    }
+}

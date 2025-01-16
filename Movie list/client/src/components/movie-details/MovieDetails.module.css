@@ -1,0 +1,413 @@
+.loadingSpinner {
+    position: absolute;
+    top: 47%;
+    left: 45%;
+    width: 70px;
+    height: 70px;
+    border: inset 10px white;
+    border-radius: 50%;
+    animation: rotating;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+}
+
+.detailsWrapper {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 800px;
+    border-radius: 20px;
+    background-color: rgb(29, 29, 29);
+    text-align: center;
+    color: white;
+    font-size: 16pt;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.detailsWrapper img {
+    width: 500px;
+    height: 500px;
+    border-radius: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.detailsWrapper article {
+    display: block;
+    margin: 0 auto;
+}
+
+.detailsWrapper article p {
+    display: inline-block;
+    margin-right: 60px;
+}
+
+.detailsWrapper p {
+    word-wrap: break-word;
+}
+
+.adminButtons {
+    display: block;
+    margin: 0 auto;
+    width: 600px;
+}
+
+.adminButtons div {
+    display: inline-block;
+}
+
+.adminButtons div i {
+    position: relative;
+    margin-left: 35px;
+    font-size: 24pt;
+}
+
+.adminButtons div p {
+    position: relative;
+    right: 18px;
+    top: 25px;
+    font-size: 16pt;
+}
+
+.adminButtons div p>a {
+    color: white;
+    text-decoration: none;
+}
+
+.adminButtons button {
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: rgb(200, 200, 7);
+    font-size: 18pt;
+    color: black;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+    margin-right: 40px;
+}
+
+.adminButtons button:hover {
+    background-color: yellow;
+}
+
+.userButtons {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+}
+
+.userButtons div {
+    display: inline-block;
+    margin-left: 40px;
+}
+
+.userButtons div i {
+    position: relative;
+    cursor: pointer;
+    font-size: 24pt;
+}
+
+.userButtons div p {
+    position: relative;
+    top: 23px;
+    right: 18px;
+    font-size: 16pt;
+}
+
+.userButtons div p>a {
+    color: white;
+    text-decoration: none;
+}
+
+.commentWrapper {
+    display: block;
+    width: 800px;
+    margin: 0 auto;
+    background-color: rgb(29, 29, 29);
+    margin-bottom: 100px;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 16pt;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.commentWrapper summary {
+    text-align: center;
+    cursor: pointer;
+}
+
+.commentWrapper h2 {
+    text-align: center;
+}
+
+.commentWrapper form {
+    display: block;
+    margin: 0 auto;
+    width: 800px;
+}
+
+.commentWrapper form input {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-left: 150px;
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 14pt;
+    padding-left: 7px;
+}
+
+.commentWrapper form input::placeholder {
+    font-size: 14pt;
+}
+
+.commentWrapper form button {
+    width: 100px;
+    height: 50px;
+    border: none;
+    background-color: rgb(200, 200, 7);
+    font-size: 16pt;
+    color: black;
+    border-radius: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
+}
+
+.commentWrapper form button:hover {
+    background-color: yellow;
+}
+
+.commentWrapper section {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 750px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: rgb(44, 44, 44);
+}
+
+.commentWrapper section div {
+    position: relative;
+    display: block;
+    width: 750px;
+    font-size: 14pt;
+}
+
+.commentWrapper section div i {
+    font-size: 18pt;
+    cursor: pointer;
+}
+
+.commentWrapper section div a {
+    color: white;
+    text-decoration: none;
+}
+
+.commentWrapper section div i:hover {
+    color: yellow;
+}
+
+.commentWrapper section div p {
+    position: absolute;
+    top: -15px;
+    left: 40px;
+}
+
+.commentWrapper section article {
+    position: relative;
+    display: block;
+    width: 750px;
+    padding: 0;
+    margin-bottom: -25px;
+}
+
+.commentWrapper section article img {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    top: -15px;
+}
+
+.commentWrapper section article h3 {
+    display: inline-block;
+    text-align: left;
+    margin-top: -50px;
+    margin-left: 60px;
+}
+
+.commentWrapper section p {
+    word-wrap: break-word;
+}
+
+.commentWrapper section article a {
+    color: white;
+}
+
+.commentWrapper section article i {
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 18pt;
+    cursor: pointer;
+}
+
+.commentWrapper section article #delete:hover,
+.commentWrapper section article #edit:hover {
+    color: yellow;
+}
+
+.commentWrapper .owner {
+    color: rgb(200, 200, 7);
+}
+
+.commentWrapper .yourComment {
+    background-color: rgb(75, 73, 73);
+}
+
+.commentWrapper section article #ownerCommentLikes {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    cursor: default;
+}
+
+.commentWrapper section article #guestCommentLikes {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    cursor: default;
+}
+
+.commentWrapper #commentLikes {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+}
+
+.commentWrapper section article p {
+    position: absolute;
+    right: 35px;
+    top: 0;
+    font-size: 14pt;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 12pt;
+    text-align: center;
+}
+
+@media(max-width:900px) {
+    .detailsWrapper {
+        width: 300px;
+        font-size: 12pt;
+    }
+    .detailsWrapper img {
+        width: 250px;
+        height: 250px;
+    }
+    .detailsWrapper article p {
+        display: block;
+        margin-right: 0;
+    }
+    .adminButtons {
+        width: 300px;
+    }
+    .adminButtons div i {
+        position: relative;
+        top: 35px;
+        right: 20px;
+        font-size: 16pt;
+    }
+    .adminButtons div p {
+        position: relative;
+        right: 3px;
+        top: 20px;
+        font-size: 12pt;
+    }
+    .adminButtons button {
+        width: 70px;
+        height: 35px;
+        font-size: 14pt;
+        margin-right: 10px;
+    }
+    .userButtons {
+        width: 200px;
+    }
+    .userButtons div i {
+        top: 35px;
+        right: 18px;
+        font-size: 16pt;
+    }
+    .userButtons div p {
+        font-size: 12pt;
+    }
+    .commentWrapper {
+        width: 300px;
+        font-size: 12pt;
+    }
+    .commentWrapper h2 {
+        text-align: center;
+    }
+    .commentWrapper form {
+        width: 300px;
+    }
+    .commentWrapper form input {
+        display: block;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 250px;
+        height: 20px;
+        font-size: 12pt;
+    }
+    .commentWrapper form input::placeholder {
+        font-size: 12pt;
+    }
+    .commentWrapper form button {
+        display: block;
+        margin: 0 auto;
+        width: 80px;
+        height: 35px;
+        margin-top: 10px;
+        font-size: 12pt;
+    }
+    .commentWrapper section {
+        margin-top: 20px;
+        width: 250px;
+    }
+    .commentWrapper section article {
+        width: 250px;
+        margin-bottom: -10px;
+    }
+    .commentWrapper section article i {
+        font-size: 14pt;
+    }
+    .commentWrapper .yourComment {
+        background-color: rgb(75, 73, 73);
+    }
+    .commentWrapper section article #ownerCommentLikes {
+        top: -5px;
+    }
+    .commentWrapper section article #guestCommentLikes {
+        top: -5px;
+    }
+    .commentWrapper #commentLikes {
+        top: -5px;
+    }
+    .commentWrapper section article p {
+        font-size: 12pt;
+    }
+    .errorMessage {
+        font-size: 10pt;
+    }
+    .commentWrapper section div i {
+        font-size: 14pt;
+    }
+}
